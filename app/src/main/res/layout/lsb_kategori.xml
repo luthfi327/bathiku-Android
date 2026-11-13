@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_bottom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bottom_sheet_background"
+    android:paddingBottom="20dp"
+    android:orientation="vertical">
+    
+    <View
+        android:layout_width="100dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:background="@color/black_50" />
+    
+    <TextView
+        style="@style/TitleMulishH4Bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:text="@string/filter_kategori"
+        android:textAlignment="center"
+        android:textColor="@color/primary_navy" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:paddingEnd="14sp"
+        android:id="@+id/rvFilterKategori"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnTerapkanFilter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/theme_button_hijau"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textColor="@color/white_bg"
+        android:textSize="15sp"
+        android:minHeight="40dp"
+        android:text="Terapkan Filter"/>
+
+</LinearLayout>

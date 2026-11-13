@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    activity_main_drawer.xml — MODIFIKASI GAP 3
+    Perubahan: menambahkan item "nav_owner_payment_history" (Riwayat Pembayaran)
+    di bawah nav_owner_dashboard.
+    Item ini dikontrol visibilitasnya secara programatik di HomeMainActivity
+    berdasarkan hak_akses user yang sedang login (hanya Owner/Admin).
+    Semua item lain TIDAK DIUBAH.
+-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_16_px_idle_home"
+            android:title="@string/menu_kasir" />
+
+        <item
+            android:id="@+id/nav_list"
+            android:icon="@drawable/ic_16_px_idle_daftar_pesanan"
+            android:title="@string/menu_daftar_pesanan" />
+
+        <item
+            android:id="@+id/nav_history"
+            android:icon="@drawable/ic_16_px_idle_riwayat_penjualan"
+            android:title="@string/menu_riwayat" />
+
+        <!-- ============================================================= -->
+        <!-- Fase 6 — Dashboard Owner (TIDAK DIUBAH)                       -->
+        <!-- Hanya ditampilkan untuk hak_akses Owner atau Admin.           -->
+        <!-- ============================================================= -->
+        <item
+            android:id="@+id/nav_owner_dashboard"
+            android:icon="@drawable/ic_16_px_idle_laporan"
+            android:title="Dashboard Owner"
+            android:visible="false" />
+
+        <!-- ============================================================= -->
+        <!-- GAP 3 — Riwayat Pembayaran Owner (BARU)                       -->
+        <!-- Hanya ditampilkan untuk hak_akses Owner atau Admin.           -->
+        <!-- Default visible="false", HomeMainActivity yang mengatur.      -->
+        <!-- ============================================================= -->
+        <item
+            android:id="@+id/nav_owner_payment_history"
+            android:icon="@drawable/ic_16_px_idle_laporan"
+            android:title="Riwayat Pembayaran"
+            android:visible="false" />
+
+        <item
+            android:id="@+id/nav_sales_data"
+            android:icon="@drawable/ic_16_px_idle_laporan"
+            android:title="@string/menu_data_penjualan" />
+
+        <item
+            android:id="@+id/nav_report"
+            android:title="@string/menu_laporan" />
+
+        <item
+            android:id="@+id/nav_sales_report"
+            android:title="@string/menu_laporan_penjualan" />
+
+        <item
+            android:id="@+id/nav_sales_detail"
+            android:title="@string/menu_detail_laporan" />
+
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/ic_16_px_idle_pengaturan"
+            android:title="@string/menu_pengaturan" />
+
+        <item
+            android:id="@+id/nav_open"
+            android:icon="@drawable/ic_16_px_idle_open_close"
+            android:title="@string/menu_tutup_kasir" />
+
+        <item
+            android:id="@+id/nav_like"
+            android:icon="@drawable/ic_16_px_idle_rating"
+            android:title="@string/menu_rating" />
+
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_16_px_idle_logout"
+            android:title="@string/menu_logout" />
+
+    </group>
+
+</menu>

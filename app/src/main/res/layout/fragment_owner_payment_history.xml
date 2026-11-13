@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    fragment_owner_payment_history.xml
+    Layout utama untuk OwnerPaymentHistoryFragment.
+
+    Struktur:
+      SwipeRefreshLayout (root)
+        └── ScrollView / NestedScrollView
+              ├── Card Summary (total PAID)
+              ├── LinearLayout Loading State
+              ├── LinearLayout Error State
+              ├── LinearLayout Empty State
+              └── RecyclerView (daftar riwayat)
+-->
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipeRefreshPayHist"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F5F7FA"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- ============================================================ -->
+            <!-- JUDUL HALAMAN                                                 -->
+            <!-- ============================================================ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Riwayat Pembayaran"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#1F2937"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Semua transaksi perpanjangan akun premium"
+                android:textSize="13sp"
+                android:textColor="#6B7280"
+                android:layout_marginBottom="20dp"/>
+
+            <!-- ============================================================ -->
+            <!-- CARD SUMMARY TOTAL PEMBAYARAN                                 -->
+            <!-- Ditampilkan hanya jika ada data                              -->
+            <!-- ============================================================ -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardSummaryPayHist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="0dp">
+
+                <!-- Gradient background menggunakan LinearLayout sebagai container -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_header_gradient"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total Pembayaran Berhasil"
+                        android:textSize="12sp"
+                        android:textColor="#C7D2FE"
+                        android:layout_marginBottom="6dp"/>
+
+                    <TextView
+                        android:id="@+id/tvTotalPaidHist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 0"
+                        android:textSize="26sp"
+                        android:textStyle="bold"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginBottom="6dp"/>
+
+                    <TextView
+                        android:id="@+id/tvJumlahTransaksiHist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 dari 0 transaksi berhasil"
+                        android:textSize="12sp"
+                        android:textColor="#A5B4FC"/>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ============================================================ -->
+            <!-- LOADING STATE                                                  -->
+            <!-- ============================================================ -->
+            <LinearLayout
+                android:id="@+id/layoutLoadingPayHist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingTop="60dp"
+                android:paddingBottom="60dp"
+                android:visibility="visible">
+
+                <ProgressBar
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:indeterminateTint="@color/colorPrimary"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Memuat riwayat pembayaran..."
+                    android:textSize="14sp"
+                    android:textColor="#6B7280"/>
+
+            </LinearLayout>
+
+            <!-- ============================================================ -->
+            <!-- ERROR STATE                                                    -->
+            <!-- ============================================================ -->
+            <LinearLayout
+                android:id="@+id/layoutErrorPayHist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingTop="60dp"
+                android:paddingBottom="40dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚠️"
+                    android:textSize="40sp"
+                    android:layout_marginBottom="12dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gagal Memuat Data"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#1F2937"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:id="@+id/tvErrorMsgPayHist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Terjadi kesalahan."
+                    android:textSize="13sp"
+                    android:textColor="#6B7280"
+                    android:gravity="center"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
+                    android:layout_marginBottom="20dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Coba Lagi"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textColor="#FFFFFF"
+                    android:onClick="onRetryClick"
+                    app:cornerRadius="8dp"/>
+
+            </LinearLayout>
+
+            <!-- ============================================================ -->
+            <!-- EMPTY STATE                                                    -->
+            <!-- ============================================================ -->
+            <LinearLayout
+                android:id="@+id/layoutEmptyPayHist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingTop="60dp"
+                android:paddingBottom="40dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="💳"
+                    android:textSize="48sp"
+                    android:layout_marginBottom="12dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Belum Ada Riwayat Pembayaran"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#1F2937"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pembayaran premium Anda akan muncul di sini setelah berhasil diproses."
+                    android:textSize="13sp"
+                    android:textColor="#6B7280"
+                    android:gravity="center"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"/>
+
+            </LinearLayout>
+
+            <!-- ============================================================ -->
+            <!-- RECYCLERVIEW — Daftar Riwayat Pembayaran                      -->
+            <!-- ============================================================ -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvRiwayatPembayaran"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".ListOutletActivity"
+    android:fitsSystemWindows="true">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/white"
+        android:elevation="5dp"
+        android:gravity="center_vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingEnd="15dp">
+
+            <!-- Judul toolbar -->
+            <TextView
+                style="@style/TitleMulishH4Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="List Outlet"
+                android:textColor="@color/primary_navy" />
+
+            <!-- Tombol tambah outlet -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btTambahOutlet"
+                style="@style/TabMulish14pxRegular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="17dp"
+                android:background="@drawable/theme_toolbar_btn_adduser"
+                android:drawableStart="@drawable/ic_baseline_add_24"
+                android:drawablePadding="5dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="Tambah"
+                android:textAllCaps="false"
+                android:textColor="@color/white_bg" />
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <!-- List outlet -->
+    <LinearLayout
+        android:id="@+id/ll_list_outlet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvListOutlet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </LinearLayout>
+
+    <!-- Tampilan jika kosong -->
+    <LinearLayout
+        android:id="@+id/ll_Kosong"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/TitleDmH5Regular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Belum ada outlet"
+            android:textAlignment="center"
+            android:textColor="@color/primary_navy" />
+
+        <TextView
+            style="@style/BodyDmP1Medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Silakan tambah outlet terlebih dahulu"
+            android:textAlignment="center"
+            android:textColor="@color/primary_navy" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btTambahOutletKosong"
+            style="@style/TabMulish14pxRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            android:background="@drawable/theme_toolbar_btn_adduser"
+            android:drawableStart="@drawable/ic_baseline_add_24"
+            android:drawablePadding="5dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="Tambah Outlet"
+            android:textAllCaps="false"
+            android:textColor="@color/white_bg" />
+
+    </LinearLayout>
+
+</LinearLayout>

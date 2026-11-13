@@ -1,0 +1,101 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F6FA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="20dp">
+
+        <TextView
+            android:text="Scan QRIS untuk membayar"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#333"
+            android:layout_marginBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/txtTotal"
+            android:text="Rp 0"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#009688"
+            android:layout_marginBottom="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!-- CARD QR -->
+        <FrameLayout
+            android:layout_width="280dp"
+            android:layout_height="320dp"
+            android:background="@android:color/white"
+            android:elevation="6dp"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:src="@drawable/qris"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="10dp"/>
+
+                <ImageView
+                    android:id="@+id/imgQr"
+                    android:layout_width="220dp"
+                    android:layout_height="220dp"/>
+
+                <TextView
+                    android:id="@+id/txtTimer"
+                    android:text="Berlaku 15:00"
+                    android:textSize="14sp"
+                    android:textColor="#E53935"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <!-- overlay expired -->
+            <LinearLayout
+                android:id="@+id/layoutExpired"
+                android:visibility="gone"
+                android:gravity="center"
+                android:background="#CCFFFFFF"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:text="QR EXPIRED"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="#E53935"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/btnBatal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Batal Pembayaran"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#E53935"
+            android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

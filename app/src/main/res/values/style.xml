@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="buttonstyle1" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorControlHighlight">#008ecc</item>
+        <item name="colorButtonNormal">#1035ac</item>
+        <item name="android:radius">20dp</item>
+    </style>
+    <style name="buttonstyle2" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorControlHighlight">#1035ac</item>
+        <item name="colorButtonNormal">#fff</item>
+        <item name="android:radius">20dp</item>
+    </style>
+    <style name="buttonstyle3." parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorControlHighlight">#0a1172</item>
+        <item name="colorButtonNormal">#fff</item>
+        <item name="android:radius">20dp</item>
+    </style>
+    <style name="BottomShetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
+    </style>
+    <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_bg</item>
+    </style>
+    <style name="AppTheme.Toolbar" parent="Theme.AppCompat.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#FFFFFF</item>
+        <item name="colorPrimaryDark">#FFFFFF</item>
+        <item name="colorAccent">#F4B335</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="Widget.Custom.NavigationView" parent="Widget.Design.NavigationView">
+        <item name="itemIconTint">?attr/colorNavigationItem</item>
+        <item name="itemTextColor">?attr/colorNavigationItem</item>
+        <item name="itemBackground">?attr/drawableNavigationItemBackground</item>
+    </style>
+    <style name="ToolbarTitleBoldCenter" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+</resources>

@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/previewSetting_struk"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".PreviewSettinganStrukAct">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/white"
+        android:elevation="5dp"
+        android:gravity="center_vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingEnd="15dp">
+
+            <ImageView
+                android:id="@+id/IvClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="5dp"
+                android:background="?attr/selectableItemBackground"
+                android:src="@drawable/ic_24_px_close" />
+
+            <TextView
+                style="@style/TitleMulishH4Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="21dp"
+                android:layout_toEndOf="@+id/IvClose"
+                android:text="@string/preview_settingan_struk"
+                android:textColor="@color/primary_navy" />
+
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="24dp"
+                android:background="@color/white"
+                android:elevation="4dp"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <ImageView
+                    android:id="@+id/ivLogoStruk"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/no_image_logo" />
+
+                <TextView
+                    android:id="@+id/tvNamaOutlet"
+                    style="@style/BodyMulishP1ExtraBold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="11dp"
+                    android:text="Warung Mbak Me"
+                    android:textAlignment="center"
+                    android:textColor="@color/primary_navy" />
+
+                <TextView
+                    android:id="@+id/tvNoHp"
+                    style="@style/LabelDmS1Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="082232803556"
+                    android:textAlignment="center"
+                    android:textColor="@color/black_100" />
+
+                <TextView
+                    android:id="@+id/tvSocialMedia"
+                    style="@style/LabelDmS1Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textColor="@color/black_100"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/tvAlamat"
+                    style="@style/LabelDmS1Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textColor="@color/black_100"
+                    android:visibility="gone"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp">
+
+                    <TextView
+                        style="@style/LabelDmS1Regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="11dp"
+                        android:text="@string/tanggal_bayar"
+                        android:textColor="@color/primary_navy" />
+
+                    <TextView
+                        style="@style/BodyDmP1Bold13sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:paddingTop="11dp"
+                        android:text="24 Juli 2021"
+                        android:textColor="@color/primary_navy" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/LabelDmS1Regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="11dp"
+                        android:text="@string/kode_counter"
+                        android:textColor="@color/primary_navy" />
+
+                    <TextView
+                        style="@style/BodyDmP1Bold13sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:paddingTop="11dp"
+                        android:text="A120"
+                        android:textColor="@color/primary_navy" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/LabelDmS1Regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="11dp"
+                        android:text="@string/nama_pegawai"
+                        android:textColor="@color/primary_navy" />
+
+                    <TextView
+                        style="@style/BodyDmP1Bold13sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:paddingTop="11dp"
+                        android:text="Gembul Pratama"
+                        android:textColor="@color/primary_navy" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/LabelDmS1Regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="11dp"
+                        android:text="@string/id_member_pelanggan_ops"
+                        android:textColor="@color/primary_navy" />
+
+                    <TextView
+                        style="@style/BodyDmP1Bold13sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:paddingTop="11dp"
+                        android:text="87971037"
+                        android:textColor="@color/primary_navy" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/LabelDmS1Regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="11dp"
+                        android:text="@string/jenis_kedatangan"
+                        android:textColor="@color/primary_navy" />
+
+                    <TextView
+                        style="@style/BodyDmP1Bold13sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:paddingTop="11dp"
+                        android:text="@string/ojekonlen"
+                        android:textColor="@color/primary_navy" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/LabelDmS1Regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="11dp"
+                        android:text="@string/jenis_pembayaran"
+                        android:textColor="@color/primary_navy" />
+
+                    <TextView
+                        style="@style/BodyDmP1Bold13sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:paddingTop="11dp"
+                        android:text="@string/cash"
+                        android:textColor="@color/primary_navy" />
+
+                </RelativeLayout>
+
+
+                <TextView
+                    style="@style/BodyDmP1Bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="11dp"
+                    android:text="@string/pesanan"
+                    android:textColor="@color/primary_navy" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/LabelDmS1Regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="11dp"
+                        android:text="@string/exp_produk"
+                        android:textColor="@color/black_100" />
+
+                    <TextView
+                        style="@style/BodyDmP1Bold13sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:paddingTop="11dp"
+                        android:text="Rp45.000"
+                        android:textColor="@color/black_100" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/dotted_line" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/LabelDmS1Regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/total_pesanan" />
+
+                    <TextView
+                        style="@style/BodyDmP1Bold13sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="Rp45.000"
+                        android:textColor="@color/black_100" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/LabelDmS1Regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="11dp"
+                        android:text="@string/diskon_ada"
+                        android:textColor="@color/primary_navy" />
+
+                    <TextView
+                        style="@style/BodyDmP1Bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:paddingTop="11dp"
+                        android:text="-"
+                        android:textColor="@color/primary_navy" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/LabelDmS1Regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="11dp"
+                        android:text="@string/total_pembayaran"
+                        android:textColor="@color/black_100" />
+
+                    <TextView
+                        style="@style/BodyDmP1Bold13sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:paddingTop="11dp"
+                        android:text="Rp45.000"
+                        android:textColor="@color/black_100" />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="11dp">
+
+                    <TextView
+                        style="@style/LabelDmS1Regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/jumlah_bayar" />
+
+                    <TextView
+                        style="@style/BodyDmP1Bold13sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="Rp50.000"
+                        android:textColor="@color/black_100" />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="11dp">
+
+                    <TextView
+                        style="@style/LabelDmS1Regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/total_kembalian" />
+
+                    <TextView
+                        style="@style/BodyDmP1Bold13sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="Rp5.000"
+                        android:textColor="@color/black_100" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvFooter"
+                    style="@style/BodyMulishP1ExtraBold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="11dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/primary_navy"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/tvTrademark"
+                    style="@style/BodyMulishP1ExtraBold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:text="Bathiku by Pyramid"
+                    android:textAlignment="center"
+                    android:textSize="10sp"
+                    android:textColor="@color/primary_navy" />
+
+                <ImageView
+                    android:id="@+id/ivGetPlaystore"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/get_playstore"
+                    android:contentDescription="@string/app_name" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

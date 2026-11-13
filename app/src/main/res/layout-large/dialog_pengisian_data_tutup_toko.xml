@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="24dp"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/TitleMulishH4Bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pengisian_data_tutup_toko"
+        android:textAlignment="center"
+        android:textColor="@color/primary_navy" />
+
+
+    <TextView
+        style="@style/BodyDmP1Regular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/isi_data_tutuptoko"
+        android:textAlignment="center"
+        android:textColor="@color/primary_navy" />
+
+    <TextView
+        style="@style/BodyDmP1Regular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/tunai"
+        android:textColor="@color/primary_navy" />
+
+    <EditText
+        android:id="@+id/etTunai"
+        style="@style/BodyDmP1Medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/tunai"
+        android:inputType="numberDecimal"
+        android:textColor="@color/primary_navy" />
+
+    <TextView
+        android:id="@+id/tvTextToDecimal1"
+        style="@style/BodyDmP1Regular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black_80" />
+
+    <TextView
+        style="@style/BodyDmP1Regular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/nontunai"
+        android:textColor="@color/primary_navy" />
+    <EditText
+        android:id="@+id/etNonTunai"
+        style="@style/BodyDmP1Medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/nontunai"
+        android:inputType="numberDecimal"
+        android:textColor="@color/primary_navy" />
+
+    <TextView
+        android:id="@+id/tvTextToDecimal2"
+        style="@style/BodyDmP1Regular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black_80" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvBatal"
+            style="@style/TitleMulishH5Bold"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/batal"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btSimpan"
+            style="@style/TitleMulishH5Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/theme_button_simpan"
+            android:text="@string/simpan"
+            android:textAllCaps="false"
+            android:textColor="@color/white_bg" />
+    </LinearLayout>
+
+</LinearLayout>

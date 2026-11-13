@@ -1,0 +1,84 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:background="@drawable/bg_row_border"
+    android:gravity="center_vertical">
+
+    <ImageView
+        android:id="@+id/ivLogoOutlet"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/rounded_imgview_upload_pict"
+        android:scaleType="centerCrop"
+        android:contentDescription="Logo Outlet"
+        android:src="@drawable/outlet_kosong" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvNamaOutlet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama Outlet"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tvAlamatOutlet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alamat"
+            android:textSize="14sp"
+            android:textColor="@color/primary_navy" />
+
+        <TextView
+            android:id="@+id/tvEmailOutlet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvTelpOutlet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No. Telepon"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/ivEditOutlet"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/ic_24_px_edit"
+            android:contentDescription="Edit Outlet"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <ImageView
+            android:id="@+id/ivHapusOutlet"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_24_px_hapus"
+            android:contentDescription="Hapus Outlet"
+            android:clickable="true"
+            android:focusable="true" />
+
+    </LinearLayout>
+
+</LinearLayout>

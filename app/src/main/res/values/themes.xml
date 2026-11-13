@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Base.Theme.Kasir" parent="Theme.Material3.Light.NoActionBar">
+
+        <!-- Status bar -->
+        <item name="android:statusBarColor">@android:color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <!-- Optional: navigation bar -->
+        <item name="android:navigationBarColor">@android:color/white</item>
+
+        <!-- Warna utama -->
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryContainer">@color/colorPrimaryDark</item>
+        <item name="colorSecondary">@color/colorPrimaryDark</item>
+
+    </style>
+
+    <style name="Theme.Kasir" parent="Base.Theme.Kasir" />
+
+</resources>

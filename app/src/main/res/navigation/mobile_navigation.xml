@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    mobile_navigation.xml — MODIFIKASI GAP 3
+    Perubahan: menambahkan fragment nav_owner_payment_history di akhir file.
+    Semua fragment lain TIDAK DIUBAH sama sekali.
+-->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <!-- Fragment lama — TIDAK DIUBAH -->
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.pyramidsoft.siqasir.ui.home.HomeMainFragment"
+        android:label="Kasir"
+        tools:layout="@layout/fragment_home_main" />
+
+    <fragment
+        android:id="@+id/nav_daftar_pesanan"
+        android:name="com.pyramidsoft.siqasir.ui.daftarpesanan.DaftarPesananFragment"
+        android:label="Daftar Pesanan"
+        tools:layout="@layout/fragment_daftar_pesanan"
+        app:actionLayout="@layout/notif_keranjang_drawer"/>
+
+    <fragment
+        android:id="@+id/nav_riwayat_penjualan"
+        android:name="com.pyramidsoft.siqasir.ui.riwayatpenjualan.RiwayatPenjualanFragment"
+        android:label="Riwayat Penjualan"
+        tools:layout="@layout/fragment_riwayat_penjualan" />
+
+    <fragment
+        android:id="@+id/nav_laporan"
+        android:name="com.pyramidsoft.siqasir.ui.laporan.LaporanFragment"
+        android:label="Laporan"
+        tools:layout="@layout/fragment_laporan" />
+
+    <fragment
+        android:id="@+id/nav_sales_report"
+        android:name="com.pyramidsoft.siqasir.ui.laporanpenjualan.LaporanPenjualanFragment"
+        android:label="Laporan Penjualan"
+        tools:layout="@layout/fragment_laporan_penjualan" />
+
+    <fragment
+        android:id="@+id/nav_sales_detail"
+        android:name="com.pyramidsoft.siqasir.ui.laporanpenjualandetail.LaporanPenjualanDetailFragment"
+        android:label="Laporan Penjualan Detail"
+        tools:layout="@layout/fragment_laporan_penjualan_detail" />
+
+    <fragment
+        android:id="@+id/nav_pengaturan"
+        android:name="com.pyramidsoft.siqasir.ui.pengaturan.PengaturanFragment"
+        android:label="Pengaturan"
+        tools:layout="@layout/fragment_pengaturan" />
+
+    <fragment
+        android:id="@+id/nav_tutup_kasir"
+        android:name="com.pyramidsoft.siqasir.ui.bukatutup.BukaTutupFragment"
+        android:label="Buka / Tutup Kasir"
+        tools:layout="@layout/fragment_bukatutup" />
+
+    <!-- ===================================================================== -->
+    <!-- Fase 6 — Dashboard Owner (TIDAK DIUBAH)                               -->
+    <!-- Hanya dapat diakses dari menu nav_owner_dashboard                      -->
+    <!-- Visibilitasnya dikontrol berdasarkan hak_akses di HomeMainActivity    -->
+    <!-- ===================================================================== -->
+    <fragment
+        android:id="@+id/nav_owner_dashboard"
+        android:name="com.pyramidsoft.siqasir.ui.ownerdashboard.OwnerDashboardFragment"
+        android:label="Dashboard Owner"
+        tools:layout="@layout/fragment_owner_dashboard" />
+
+    <!-- ===================================================================== -->
+    <!-- GAP 3 — Riwayat Pembayaran Owner (BARU)                               -->
+    <!-- Hanya dapat diakses dari menu nav_owner_payment_history               -->
+    <!-- Visibilitasnya dikontrol berdasarkan hak_akses di HomeMainActivity    -->
+    <!-- (sama seperti nav_owner_dashboard di atas)                            -->
+    <!-- ===================================================================== -->
+    <fragment
+        android:id="@+id/nav_owner_payment_history"
+        android:name="com.pyramidsoft.siqasir.ui.ownerpayment.OwnerPaymentHistoryFragment"
+        android:label="Riwayat Pembayaran"
+        tools:layout="@layout/fragment_owner_payment_history" />
+
+</navigation>

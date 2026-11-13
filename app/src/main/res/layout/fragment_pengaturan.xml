@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.pengaturan.PengaturanFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/footer">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/masterOutlet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/white_bg"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TitleMulishH3ExtraBold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="15dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="12dp"
+                android:text="@string/pengaturan_otlet"
+                android:textColor="@color/colorPrimary"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"
+                android:id="@+id/tvNamaOutlet"
+                style="@style/BodyDmP1Regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_16_px_idle_chevron_next"
+                android:paddingStart="15dp"
+                android:paddingTop="12dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="15dp"
+                android:text="@string/tentang_outlet"
+                android:textColor="@color/colorPrimary"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"
+                android:id="@+id/tvListOutlet"
+                style="@style/BodyDmP1Regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_16_px_idle_chevron_next"
+                android:paddingStart="15dp"
+                android:paddingTop="12dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="15dp"
+                android:text="List Outlet"
+                android:textColor="@color/colorPrimary"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"
+                android:id="@+id/tvPerpanjangMAO"
+                style="@style/BodyDmP1Regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_16_px_idle_chevron_next"
+                android:paddingStart="15dp"
+                android:paddingTop="12dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="15dp"
+                android:text="Perpanjang Masa Aktif Outlet"
+                android:textColor="@color/colorPrimary"
+                tools:ignore="RtlSymmetry" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TitleMulishH3ExtraBold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="15dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="12dp"
+                android:text="@string/master"
+                android:textColor="@color/colorPrimary"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:clickable="true"
+                android:focusable="true"
+                android:id="@+id/tvJenisKedatangan"
+                style="@style/BodyDmP1Regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_16_px_idle_chevron_next"
+                android:paddingStart="15dp"
+                android:paddingTop="12dp"
+                android:background="?attr/selectableItemBackground"
+                android:paddingEnd="20dp"
+                android:paddingBottom="15dp"
+                android:text="@string/jenis_kedatangan"
+                android:textColor="@color/colorPrimary"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/tvListKategori"
+                style="@style/BodyDmP1Regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:drawableEnd="@drawable/ic_16_px_idle_chevron_next"
+                android:paddingStart="15dp"
+                android:paddingTop="12dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="15dp"
+                android:text="@string/list_kategori"
+                android:textColor="@color/colorPrimary"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/tvListBarang"
+                style="@style/BodyDmP1Regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:drawableEnd="@drawable/ic_16_px_idle_chevron_next"
+                android:paddingStart="15dp"
+                android:paddingTop="12dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="12dp"
+                android:text="@string/list_barang"
+                android:textColor="@color/colorPrimary"
+                tools:ignore="RtlSymmetry" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/masterUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TitleMulishH3ExtraBold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="15dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="12dp"
+                android:text="@string/pengaturan_user"
+                android:textColor="@color/colorPrimary"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/tvPemilikToko"
+                style="@style/BodyDmP1Regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:drawableEnd="@drawable/ic_16_px_idle_chevron_next"
+                android:paddingStart="15dp"
+                android:paddingTop="12dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="12dp"
+                android:text="@string/Pengaturan_profile"
+                android:textColor="@color/colorPrimary"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/tvPegawai"
+                style="@style/BodyDmP1Regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:drawableEnd="@drawable/ic_16_px_idle_chevron_next"
+                android:paddingStart="15dp"
+                android:paddingTop="12dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="15dp"
+                android:text="@string/list_pegawai"
+                android:textColor="@color/colorPrimary"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/tvHapusAkun"
+                style="@style/BodyDmP1Regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F86A5F"
+                android:drawableEnd="@drawable/ic_trash"
+                android:drawableTint="@android:color/white"
+                android:paddingStart="15dp"
+                android:paddingTop="12dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="10dp"
+                android:layout_marginBottom="3dp"
+                android:text="Hapus"
+                android:textColor="@android:color/white"
+                tools:ignore="RtlSymmetry" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/masterStruk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TitleMulishH3ExtraBold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="15dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="12dp"
+                android:text="@string/pengaturan_struk"
+                android:textColor="@color/colorPrimary"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/tvPengaturanPrinter"
+                style="@style/BodyDmP1Regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:drawableEnd="@drawable/ic_16_px_idle_chevron_next"
+                android:paddingStart="15dp"
+                android:paddingTop="12dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="15dp"
+                android:text="@string/tambah_printer"
+                android:textColor="@color/colorPrimary"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/tvPengaturanStruk"
+                style="@style/BodyDmP1Regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:drawableEnd="@drawable/ic_16_px_idle_chevron_next"
+                android:paddingStart="15dp"
+                android:paddingTop="12dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="15dp"
+                android:text="@string/footer_struk"
+                android:textColor="@color/colorPrimary"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/tvBantuan"
+                style="@style/BodyDmP1Regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:drawableEnd="@drawable/ic_16_px_idle_chevron_next"
+                android:paddingStart="15dp"
+                android:paddingTop="12dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="15dp"
+                android:text="@string/bantuan"
+                android:textColor="@color/colorPrimary"
+                tools:ignore="RtlSymmetry" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/masterDatabase"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TitleMulishH3ExtraBold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="15dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="12dp"
+                android:text="Pengaturan Database"
+                android:textColor="@color/colorPrimary"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/tvBackupDatabase"
+                style="@style/BodyDmP1Regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:drawableEnd="@drawable/ic_16_px_idle_chevron_next"
+                android:paddingStart="15dp"
+                android:paddingTop="12dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="15dp"
+                android:text="Backup"
+                android:textColor="@color/colorPrimary"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/tvSinkronisasiDatabase"
+                style="@style/BodyDmP1Regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:drawableEnd="@drawable/ic_16_px_idle_chevron_next"
+                android:paddingStart="15dp"
+                android:paddingTop="12dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="15dp"
+                android:text="Sinkronisasi Data Dari Server"
+                android:textColor="@color/colorPrimary"
+                tools:ignore="RtlSymmetry" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/footer"
+        style="@style/LabelMulishS1Bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="© Bathiku by PyramidSoft"
+        android:textSize="14sp"
+        android:textColor="@color/primary_navy"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:paddingStart="20dp"
+    android:paddingTop="10dp"
+    android:paddingEnd="20dp"
+    android:paddingBottom="20dp"
+    android:id="@+id/rootLayout"
+    tools:context=".ui.home.HomeMainFragment">
+
+    <LinearLayout
+        android:id="@+id/bannerExpWarning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="14dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_vertical"
+        android:visibility="gone"
+        android:background="@drawable/bg_exp_warning">
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@drawable/ic_warning"
+            android:layout_marginEnd="12dp"
+            app:tint="#B45309" />
+
+        <TextView
+            android:id="@+id/tvExpWarning"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Masa aktif toko akan berakhir dalam 3 hari"
+            android:textColor="#78350F"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:lineSpacingExtra="2dp"/>
+
+        <TextView
+            android:id="@+id/btnPerpanjang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Perpanjang"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="6dp"
+            android:background="@drawable/bg_btn_perpanjang"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bannerQrPending"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="14dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_vertical"
+        android:visibility="gone"
+        android:background="@drawable/bg_exp_warning">
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@drawable/ic_warning"
+            android:layout_marginEnd="12dp"
+            app:tint="#1D4ED8" />
+
+        <TextView
+            android:id="@+id/tvQrWarning"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Selesaikan pembayaran QR"
+            android:textColor="#1E3A8A"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:lineSpacingExtra="2dp"/>
+
+        <TextView
+            android:id="@+id/btnBayarQr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bayar"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="6dp"
+            android:background="@drawable/bg_btn_perpanjang"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lin1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/header"
+        android:orientation="horizontal"
+        android:padding="10dp">
+        
+        <ImageView
+            android:id="@+id/IvLogo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/img_icon"/>
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingStart="10dp">
+
+            <TextView
+                android:id="@+id/tvNamaOutlet"
+                style="@style/TitleMulishH5Bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/nama_toko"
+                android:textColor="@color/black_100" />
+            
+            <TextView
+                android:id="@+id/tvEmail"
+                style="@style/LabelDmS1Regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/email"
+                android:textColor="@color/black_80" />
+
+        </LinearLayout>
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:gravity="center_vertical"
+        android:paddingBottom="20dp">
+
+        <EditText
+            android:id="@+id/etPencarianProduk"
+            style="@style/BodyDmP1Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/search_theme_edit_text"
+            android:drawableEnd="@drawable/ic_16_px_search"
+            android:hint="@string/cari_produk_anda_disini"
+            android:minHeight="48dp"
+            android:padding="15dp" />
+
+        <TextView
+            android:id="@+id/btSearchKategori"
+            style="@style/BodyDmP1Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/kategori_theme_button"
+            android:drawableStart="@drawable/ic_16_px_kategori"
+            android:padding="15dp"
+            android:text="@string/kategori"
+            android:textAlignment="center" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:padding="4dp">
+
+            <View
+                android:id="@+id/tabIndicator"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/tab_indicator_oval"
+                android:layout_margin="2dp" />
+
+            <LinearLayout
+                android:id="@+id/customTabContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                android:background="@android:color/transparent">
+
+                <TextView
+                    android:id="@+id/tabSemua"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Semua"
+                    android:textColor="@color/primary_navy"
+                    android:background="@android:color/transparent"
+                    android:textStyle="bold"
+                    android:layout_margin="2dp" />
+
+                <TextView
+                    android:id="@+id/tabDiskon"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Diskon"
+                    android:textColor="@color/primary_navy"
+                    android:background="@android:color/transparent"
+                    android:textStyle="bold"
+                    android:layout_margin="2dp" />
+
+                <TextView
+                    android:id="@+id/tabFavorit"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Favorit"
+                    android:textColor="@color/primary_navy"
+                    android:background="@android:color/transparent"
+                    android:textStyle="bold"
+                    android:layout_margin="2dp" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"/>
+
+        <RelativeLayout
+            android:id="@+id/rel_produksi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/theme_rel_produksi"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvJumlahP"
+                style="@style/LabelMulishS1Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/jumlah"
+                android:textColor="#737373" />
+
+            <TextView
+                android:id="@+id/tvQtyP"
+                style="@style/TitleMulishH4Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvJumlahP"
+                android:text="1"
+                android:textColor="@color/white_bg" />
+
+            <TextView
+                android:id="@+id/tvTotalHrgP"
+                style="@style/TitleMulishH4Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:layout_toStartOf="@+id/IvCheckoutP"
+                android:text="Rp45.000"
+                android:textColor="@color/white_bg" />
+
+            <ImageView
+                android:id="@+id/IvCheckoutP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_32_px_checkout_white" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rel_default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/kategori_theme_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvJumlah"
+                style="@style/LabelMulishS1Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/jumlah"
+                android:textColor="#737373" />
+
+            <TextView
+                android:id="@+id/tvQty"
+                style="@style/TitleMulishH4Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvJumlah"
+                android:text="0"
+                android:textColor="@color/black_100" />
+
+            <TextView
+                android:id="@+id/tvTotalHrg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:layout_toStartOf="@+id/IvCheckout"
+                android:text="Rp0"
+                android:textColor="@color/black" />
+
+            <ImageView
+                android:id="@+id/IvCheckout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_32_px_checkout" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rel_bukakasir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/theme_rel_bukakasir"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+
+            <TextView
+                android:id="@+id/tvNamaUser"
+                style="@style/TitleMulishH5Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/buka_kasir_g"
+                android:textColor="@color/white_bg" />
+
+            <TextView
+                android:id="@+id/tvDateTime"
+                style="@style/LabelMulishS1Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvNamaUser"
+                android:text="Jum’at, 12 Desember 2021, 07.00"
+                android:textColor="@color/white_bg" />
+
+            <ImageView
+                android:id="@+id/IvCheckoutbk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:src="@drawable/checkout_white" />
+
+        </RelativeLayout>
+
+        <TextView
+            style="@style/LabelMulishS1Bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="© Bathiku by PyramidSoft"
+            android:textSize="14sp"
+            android:textColor="@color/primary_navy"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_alignParentBottom="true"/>
+
+    </LinearLayout>
+
+</LinearLayout>

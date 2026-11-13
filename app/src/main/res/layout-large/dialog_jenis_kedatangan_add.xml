@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="24dp">
+
+    <TextView
+        style="@style/TitleMulishH4Bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tambah_jenis_kedatangan"
+        android:textAlignment="center"
+        android:textColor="@color/primary_navy" />
+
+
+    <TextView
+        style="@style/BodyDmP1Regular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/ket_jenis_kedatangan"
+        android:textAlignment="center"
+        android:textColor="@color/primary_navy" />
+
+    <EditText
+        android:inputType="textCapWords"
+        android:id="@+id/etJenisKedatangan"
+        style="@style/BodyDmP1Medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:hint="@string/jenis_kedatangan"
+        android:textColor="@color/primary_navy" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:id="@+id/tvBatal"
+            style="@style/TitleMulishH5Bold"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/batal"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:focusable="true" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btSimpan"
+            style="@style/TitleMulishH5Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/theme_button_simpan"
+            android:text="@string/simpan"
+            android:textAllCaps="false"
+            android:textColor="@color/white_bg" />
+    </LinearLayout>
+
+</LinearLayout>

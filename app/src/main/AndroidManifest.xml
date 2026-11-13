@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_CONNECT"
+        android:usesPermissionFlags="neverForLocation" />
+
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_SCAN"
+        android:usesPermissionFlags="neverForLocation" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH"
+        android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"
+        android:maxSdkVersion="30" />
+
+    <application
+        android:requestLegacyExternalStorage="true"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher_new"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Kasir"
+        tools:targetApi="31">
+
+        <activity
+            android:name=".SplashScreen"
+            android:theme="@style/SplashTheme"
+            android:launchMode="singleTask"
+            android:noHistory="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".LoginOrRegisterActivity"
+            android:label="LoginOrRegisterActivity">
+        </activity>
+        <activity
+            android:name=".OnlineLoginPageActivity"
+            android:label="OnlineLoginPageActivity">
+        </activity>
+        <activity
+            android:name=".LoginPageActivity"
+            android:label="LoginPageActivity">
+        </activity>
+        <activity
+            android:name=".RegistrasiToko"
+            android:label="DaftarPerusahaanActivity">
+        </activity>
+        <activity
+            android:name=".RegistrasiUser"
+            android:label="Daftar Admin Activity" >
+        </activity>
+        <activity
+            android:name=".HomeMainActivity"
+            android:label="Home Main Activity">
+        </activity>
+        <activity
+            android:name=".PaketLanggananActivity"
+            android:label="Paket Langganan Activity"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
+        <activity
+            android:name=".QrisPembayaranActivity"
+            android:label="Qris Pembayaran Activity">
+        </activity>
+        <activity
+            android:name=".BuatPesananAct"
+            android:label="Buat Pesanan Act">
+        </activity>
+        <activity
+            android:name=".BukaKasirActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            android:label="Buka Kasir Activity">
+        </activity>
+        <activity
+            android:name=".DataPemesananAct"
+            android:label="Data Pemesanan Act">
+        </activity>
+        <activity
+            android:name=".PembayaranAct"
+            android:label="Pembayaran Act">
+        </activity>
+        <activity
+            android:name=".PembayaranSuksesAct"
+            android:label="Pembayaran Sukses Act">
+        </activity>
+        <activity
+            android:name=".CetakUlangRiwayatPenjualan"
+            android:label="CetakUlangRiwayatPenjualan">
+        </activity>
+        <activity
+            android:name=".AboutTokoAct"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            android:label="AboutTokoAct">
+        </activity>
+        <activity
+            android:name=".ListOutletActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            android:label="ListOutletActivity">
+        </activity>
+        <activity
+            android:name=".TambahOutletActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            android:label="TambahOutletActivity">
+        </activity>
+        <activity
+            android:name=".ListProdukActivity"
+            android:label="ListProdukActivity">
+        </activity>
+        <activity
+            android:name=".ProdukTokoActivity"
+            android:label="ProdukTokoActivity">
+        </activity>
+        <activity
+            android:name=".KategoriActivity"
+            android:label="KategoriActivity">
+        </activity>
+        <activity
+            android:name=".MasterJenisKedatanganActivity"
+            android:label="MasterJenisKedatanganActivity">
+        </activity>
+        <activity
+            android:name=".PengaturanProfile"
+            android:label="PengaturanProfile">
+        </activity>
+        <activity
+            android:name=".PilihKaryawan"
+            android:label="Pilih Karyawan">
+        </activity>
+        <activity
+            android:name=".ListPegawaiAct"
+            android:label="ListPegawaiAct">
+        </activity>
+        <activity
+            android:name=".DetailPegawaiActivity"
+            android:label="DetailPegawaiActivity">
+        </activity>
+        <activity
+            android:name=".TambahPegawaiActivity"
+            android:label="TambahPegawaiActivity">
+        </activity>
+        <activity
+            android:name=".UpdateDataPegawaiActivity"
+            android:label="UpdateDataPegawaiActivity">
+        </activity>
+        <activity
+            android:name=".ResetPswdPinAdmin"
+            android:label="ResetPaswdPinAdmin">
+        </activity>
+        <activity
+            android:name=".SettingHalamanStrukAct"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            android:label="SettingHalamanStrukAct">
+        </activity>
+        <activity
+            android:name=".PreviewSettinganStrukAct"
+            android:label="PreviewSettinganStrukAct">
+        </activity>
+        <activity
+            android:name=".BantuanActivity"
+            android:label="BantuanActivity">
+        </activity>
+        <activity
+            android:name=".BackupDatabaseActivity"
+            android:label="BackupDatabaseActivity">
+        </activity>
+        <activity
+            android:name=".printer.SearchDeviceActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@style/Theme.AppCompat.Dialog" />
+        <activity
+            android:name=".printer.PengaturanDetailOutputPrinter"
+            android:label="Pengaturan Device"
+            android:theme="@style/AppTheme.Toolbar" />
+        <activity
+            android:name=".printer.SettingPrinterActivity"
+            android:label="Atur Printer"
+            android:theme="@style/AppTheme.Toolbar" />
+        <activity
+            android:name=".LaporanKasDetailActivity"
+            android:label="LaporanKasDetailActivity">
+        </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.pyramidsoft.siqasir.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/paths" />
+        </provider>
+
+    </application>
+
+</manifest>

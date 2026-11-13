@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    fragment_owner_dashboard.xml — MODIFIKASI GAP 5
+    Perubahan: tambah FrameLayout wrapper di root agar loading/error overlay
+    bisa ditumpuk di atas ScrollView konten dashboard.
+
+    Struktur baru:
+      FrameLayout (root wrapper)
+        ├── SwipeRefreshLayout
+        │     └── ScrollView (id: scrollViewDashboard) ← BARU: diberi id untuk visibility control
+        │           └── ... semua konten dashboard (tidak berubah)
+        ├── LinearLayout layoutVerifikasiLoading  ← BARU: overlay loading GAP 5
+        └── LinearLayout layoutVerifikasiError    ← BARU: overlay error GAP 5
+-->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- ================================================================= -->
+    <!-- OVERLAY LOADING VERIFIKASI ROLE (GAP 5 — BARU)                    -->
+    <!-- Ditampilkan saat fragment pertama kali dibuka,                     -->
+    <!-- sebelum verifikasi role dari server selesai.                       -->
+    <!-- Dipanggil: tampilkanLoadingVerifikasi()                            -->
+    <!-- ================================================================= -->
+    <LinearLayout
+        android:id="@+id/layoutVerifikasiLoading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#FFFFFFFF"
+        android:elevation="8dp"
+        android:visibility="visible">
+
+        <ProgressBar
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:indeterminateTint="#38405A"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Memverifikasi akses..."
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#1F2937"
+            android:layout_marginBottom="6dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mohon tunggu sebentar"
+            android:textSize="13sp"
+            android:textColor="#6B7280"/>
+
+    </LinearLayout>
+
+    <!-- ================================================================= -->
+    <!-- OVERLAY ERROR VERIFIKASI (GAP 5 — BARU)                           -->
+    <!-- Ditampilkan jika server error atau tidak ada koneksi.              -->
+    <!-- Konten dashboard tetap tersembunyi saat overlay ini aktif.        -->
+    <!-- ================================================================= -->
+    <LinearLayout
+        android:id="@+id/layoutVerifikasiError"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#FFFFFFFF"
+        android:elevation="8dp"
+        android:padding="32dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⚠️"
+            android:textSize="48sp"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gagal Memverifikasi Akses"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#1F2937"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/tvVerifikasiErrorMsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Terjadi kesalahan saat menghubungi server."
+            android:textSize="13sp"
+            android:textColor="#6B7280"
+            android:gravity="center"
+            android:layout_marginBottom="24dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnVerifikasiRetry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Coba Lagi"
+            android:backgroundTint="#38405A"
+            android:textColor="#FFFFFF"
+            app:cornerRadius="10dp"/>
+
+    </LinearLayout>
+
+    <!-- ================================================================= -->
+    <!-- KONTEN DASHBOARD (tidak berubah dari sebelumnya)                  -->
+    <!-- id scrollViewDashboard ditambahkan untuk kontrol visibility        -->
+    <!-- ================================================================= -->
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/scrollViewDashboard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:background="#F5F7FA"
+            android:visibility="invisible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- ============================================================= -->
+                <!-- JUDUL HALAMAN                                                  -->
+                <!-- ============================================================= -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dashboard Owner"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#1F2937"
+                    android:layout_marginBottom="4dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ringkasan aktivitas toko Anda"
+                    android:textSize="13sp"
+                    android:textColor="#6B7280"
+                    android:layout_marginBottom="20dp"/>
+
+                <!-- ============================================================= -->
+                <!-- KARTU STATUS AKUN (hanya Owner/Admin)                         -->
+                <!-- ============================================================= -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardStatusAkun"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="14dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="3dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="#E0D4F7"
+                    android:backgroundTint="#F5F0FF">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <!-- Header kartu -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="14dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Status Akun"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textColor="#374151"/>
+
+                            <!-- Badge status: Premium / Trial / Expired -->
+                            <TextView
+                                android:id="@+id/txtStatusAkun"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Premium"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:textColor="#10B981"
+                                android:background="@drawable/bg_badge_premium"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="4dp"/>
+
+                        </LinearLayout>
+
+                        <!-- Nama toko -->
+                        <TextView
+                            android:id="@+id/txtNamaToko"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="-"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="#1F2937"
+                            android:layout_marginBottom="6dp"/>
+
+                        <!-- Baris exp_date -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="4dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Aktif sampai:"
+                                android:textSize="13sp"
+                                android:textColor="#6B7280"/>
+
+                            <TextView
+                                android:id="@+id/txtExpDate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="-"
+                                android:textSize="13sp"
+                                android:textStyle="bold"
+                                android:textColor="#374151"/>
+
+                        </LinearLayout>
+
+                        <!-- Sisa hari -->
+                        <TextView
+                            android:id="@+id/txtSisaHari"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textSize="12sp"
+                            android:textColor="#6B7280"
+                            android:layout_marginBottom="14dp"/>
+
+                        <!-- Tombol perpanjang — muncul jika sisa ≤ 30 hari atau expired -->
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnPerpanjang"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:text="Perpanjang Premium"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textAllCaps="false"
+                            android:textColor="#FFFFFF"
+                            android:backgroundTint="#6F42C1"
+                            android:visibility="gone"
+                            app:cornerRadius="10dp"/>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- ============================================================= -->
+                <!-- RINGKASAN HARI INI                                             -->
+                <!-- ============================================================= -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="14dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="3dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="#E9ECEF">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="14dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="☀️  Hari Ini"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textColor="#374151"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <!-- Kiri: Transaksi -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Transaksi"
+                                    android:textSize="12sp"
+                                    android:textColor="#6B7280"/>
+
+                                <TextView
+                                    android:id="@+id/txtTrxHariIni"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0 transaksi"
+                                    android:textSize="22sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#1F2937"/>
+
+                            </LinearLayout>
+
+                            <!-- Divider vertikal -->
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:background="#E9ECEF"
+                                android:layout_marginHorizontal="16dp"/>
+
+                            <!-- Kanan: Omzet -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Omzet"
+                                    android:textSize="12sp"
+                                    android:textColor="#6B7280"/>
+
+                                <TextView
+                                    android:id="@+id/txtOmzetHariIni"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Rp 0"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#10B981"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- ============================================================= -->
+                <!-- RINGKASAN BULAN INI                                            -->
+                <!-- ============================================================= -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="14dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="3dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="#E9ECEF">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📅  Bulan Ini"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#374151"
+                            android:layout_marginBottom="14dp"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Transaksi"
+                                    android:textSize="12sp"
+                                    android:textColor="#6B7280"/>
+
+                                <TextView
+                                    android:id="@+id/txtTrxBulanIni"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0 transaksi"
+                                    android:textSize="22sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#1F2937"/>
+
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:background="#E9ECEF"
+                                android:layout_marginHorizontal="16dp"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Omzet"
+                                    android:textSize="12sp"
+                                    android:textColor="#6B7280"/>
+
+                                <TextView
+                                    android:id="@+id/txtOmzetBulanIni"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Rp 0"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#0D6EFD"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- ============================================================= -->
+                <!-- KARTU GRAFIK PENJUALAN 7 HARI TERAKHIR                        -->
+                <!-- ============================================================= -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="3dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="#E9ECEF">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📊  Penjualan 7 Hari Terakhir"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#374151"
+                            android:layout_marginBottom="16dp"/>
+
+                        <!-- Custom bar chart — tidak butuh library eksternal -->
+                        <com.pyramidsoft.siqasir.ui.ownerdashboard.OwnerBarChartView
+                            android:id="@+id/barChartPenjualan"
+                            android:layout_width="match_parent"
+                            android:layout_height="160dp"/>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</FrameLayout>

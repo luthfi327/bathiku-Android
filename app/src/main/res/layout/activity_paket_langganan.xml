@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true"
+    android:background="#F5F7FA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- ============================================================ -->
+        <!-- TOOLBAR — tidak berubah                                       -->
+        <!-- ============================================================ -->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="start|center_vertical"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/ic_back"
+                android:tint="@android:color/white" />
+
+            <TextView
+                android:id="@+id/toolbarTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Paket Langganan"
+                android:layout_gravity="center"
+                style="@style/ToolbarTitleBoldCenter"/>
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <!-- ============================================================ -->
+        <!-- HEADER GRADIENT — tidak berubah                               -->
+        <!-- ============================================================ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:background="@drawable/bg_header_gradient"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Perpanjang masa aktif toko Anda dengan QRIS"
+                android:textColor="#E9ECEF"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="220dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="40dp"
+                android:contentDescription="Logo"
+                android:scaleType="fitCenter"
+                android:src="@drawable/logo_white" />
+
+        </LinearLayout>
+
+        <!-- ============================================================ -->
+        <!-- FASE 5: LOADING OVERLAY                                       -->
+        <!-- Ditampilkan saat fetch harga dari server sedang berlangsung.  -->
+        <!-- Disembunyikan setelah harga diterima / error ditampilkan.     -->
+        <!-- ============================================================ -->
+        <LinearLayout
+            android:id="@+id/layoutLoadingPricing"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <ProgressBar
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/colorPrimary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Mengambil harga terbaru dari server..."
+                android:textSize="14sp"
+                android:textColor="#6C757D" />
+
+        </LinearLayout>
+
+        <!-- ============================================================ -->
+        <!-- FASE 5: WRAPPER KONTEN PAKET                                  -->
+        <!-- Disembunyikan saat loading, ditampilkan setelah harga ready.  -->
+        <!-- ============================================================ -->
+        <LinearLayout
+            android:id="@+id/layoutKontenPaket"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <!-- ========================================================= -->
+            <!-- CARD PROMO FIRST-TIME (kuning) — logika lama, tidak berubah-->
+            <!-- ========================================================= -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardPromo"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="3dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#FFD43B"
+                android:backgroundTint="#FFF9DB">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="14dp"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Promo pembelian pertama HANYA Rp 19.000/Bln HEMAT Rp 30.000 ⭐🚀🚀"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:textColor="#7A4E00"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ========================================================= -->
+            <!-- FASE 5: CARD PROMO KHUSUS (biru/ungu)                      -->
+            <!-- Muncul jika server melaporkan ada_promo_khusus = true.     -->
+            <!-- Teks diisi secara dinamis dari Java (applyPromoKhususBadge) -->
+            <!-- ========================================================= -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardPromoKhusus"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="3dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#6F42C1"
+                android:backgroundTint="#F0EBFF">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="14dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🎁"
+                        android:textSize="22sp"
+                        android:layout_marginEnd="10dp" />
+
+                    <TextView
+                        android:id="@+id/txtPromoKhususLabel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Harga Spesial!"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:textColor="#4A148C"/>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ========================================================= -->
+            <!-- CARD MASA AKTIF — tidak berubah                           -->
+            <!-- ========================================================= -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardExpired"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="16dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="3dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#E9ECEF">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_calendar"
+                        app:tint="#0D6EFD" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Masa Aktif Sampai"
+                            android:textSize="13sp"
+                            android:textColor="#6C757D"/>
+
+                        <TextView
+                            android:id="@+id/txtExpiredDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="--"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="#212529"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ========================================================= -->
+            <!-- PILIHAN PAKET + JUMLAH TOKO + TOMBOL BAYAR                -->
+            <!-- Struktur identik dengan asli — hanya teks harga            -->
+            <!-- yang diisi dinamis dari Java (applyFirstTimeUI)            -->
+            <!-- ========================================================= -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:orientation="vertical"
+                android:layout_marginTop="-10dp">
+
+                <!-- PAKET 1 BULAN -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card1Bulan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="14dp"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="4dp"
+                    app:strokeWidth="2dp"
+                    app:strokeColor="#6F42C1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="18dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Single"
+                                android:textStyle="bold"
+                                android:textSize="18sp"
+                                android:textColor="#212529"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1 Bulan"
+                                android:textSize="14sp"
+                                android:textColor="#6C757D"
+                                android:layout_marginTop="4dp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="end">
+
+                            <TextView
+                                android:id="@+id/txtHargaAsli1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Rp 49.000 / Bulan"
+                                android:textSize="12sp"
+                                android:textColor="#6C757D"/>
+
+                            <!-- Ditampilkan saat isFirstTime = true -->
+                            <TextView
+                                android:id="@+id/txtHargaPromo1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Rp 19.000"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="#6F42C1"
+                                android:visibility="gone"/>
+
+                            <!-- Ditampilkan saat isFirstTime = false -->
+                            <TextView
+                                android:id="@+id/txtHargaNormal1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Rp 49.000"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="#6F42C1"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- PAKET 3 BULAN (TERPOPULER) -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card3Bulan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="14dp"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="4dp"
+                    app:strokeWidth="2dp"
+                    app:strokeColor="#6F42C1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:text="TERPOPULER"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="12sp"
+                            android:textColor="#FFFFFF"
+                            android:background="#6F42C1"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="18dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Premium"
+                                    android:textStyle="bold"
+                                    android:textSize="18sp"
+                                    android:textColor="#212529"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="3 Bulan"
+                                    android:textSize="14sp"
+                                    android:textColor="#6C757D"
+                                    android:layout_marginTop="4dp"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="end">
+
+                                <TextView
+                                    android:id="@+id/txtHargaAsli3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Rp 49.000 / Bulan"
+                                    android:textSize="12sp"
+                                    android:textColor="#6C757D"/>
+
+                                <TextView
+                                    android:id="@+id/txtHargaBulan3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Rp 43.000 / bulan"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#212529"/>
+
+                                <TextView
+                                    android:id="@+id/txtHargaTotal3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Rp 129.000"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#6F42C1"/>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- PAKET 6 BULAN -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card6Bulan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="14dp"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="4dp"
+                    app:strokeWidth="2dp"
+                    app:strokeColor="#6F42C1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="18dp"
+                        android:gravity="center_vertical">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Business"
+                                android:textStyle="bold"
+                                android:textSize="18sp"
+                                android:textColor="#212529"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="6 Bulan"
+                                android:textSize="14sp"
+                                android:textColor="#6C757D"
+                                android:layout_marginTop="4dp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="end">
+
+                            <TextView
+                                android:id="@+id/txtHargaAsli6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Rp 49.000 / Bulan"
+                                android:textSize="12sp"
+                                android:textColor="#6C757D"/>
+
+                            <TextView
+                                android:id="@+id/txtHargaBulan6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Rp 36.500 / bulan"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textColor="#212529"/>
+
+                            <TextView
+                                android:id="@+id/txtHargaTotal6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Rp 219.000"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="#6F42C1"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- PAKET 12 BULAN -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card12Bulan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="4dp"
+                    app:strokeWidth="2dp"
+                    app:strokeColor="#6F42C1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="18dp"
+                        android:gravity="center_vertical">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Expert"
+                                android:textStyle="bold"
+                                android:textSize="18sp"
+                                android:textColor="#212529"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="12 Bulan"
+                                android:textSize="14sp"
+                                android:textColor="#6C757D"
+                                android:layout_marginTop="4dp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="end">
+
+                            <TextView
+                                android:id="@+id/txtHargaAsli12"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Rp 49.000 / Bulan"
+                                android:textSize="12sp"
+                                android:textColor="#6C757D"/>
+
+                            <TextView
+                                android:id="@+id/txtHargaBulan12"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Rp 29.000 / bulan"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textColor="#212529"/>
+
+                            <TextView
+                                android:id="@+id/txtHargaTotal12"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Rp 348.000"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="#6F42C1"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- CARD JUMLAH TOKO -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardJumlahToko"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="4dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="#E9ECEF">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <TextView
+                            android:text="Jumlah Toko"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:textColor="#212529"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginTop="14dp"
+                            android:orientation="horizontal"
+                            android:background="#F8F9FA"
+                            android:gravity="center_vertical"
+                            android:paddingStart="6dp"
+                            android:paddingEnd="6dp">
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnMinus"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                app:icon="@drawable/decrease_box"
+                                app:iconTint="#FFFFFF"
+                                app:iconGravity="textStart"
+                                app:iconPadding="0dp"
+                                android:backgroundTint="#0D6EFD"
+                                app:cornerRadius="12dp"/>
+
+                            <EditText
+                                android:id="@+id/edtJumlahToko"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="1"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:background="@android:color/transparent"
+                                android:inputType="number"/>
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnPlus"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                app:icon="@drawable/add_box"
+                                app:iconTint="#FFFFFF"
+                                app:iconGravity="textStart"
+                                app:iconPadding="0dp"
+                                android:backgroundTint="#0D6EFD"
+                                app:cornerRadius="12dp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginTop="16dp">
+
+                            <TextView
+                                android:id="@+id/txtSubtotal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Subtotal: Rp 0"
+                                android:textSize="14sp"
+                                android:textColor="#666"/>
+
+                            <TextView
+                                android:id="@+id/txtFee"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Biaya QRIS (0.63%): Rp 0"
+                                android:textSize="14sp"
+                                android:textColor="#888"
+                                android:layout_marginTop="4dp"/>
+
+                            <View
+                                android:layout_width="120dp"
+                                android:layout_height="1dp"
+                                android:background="#E0E0E0"
+                                android:layout_marginVertical="8dp"/>
+
+                            <TextView
+                                android:id="@+id/txtTotalHarga"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Total: Rp 0"
+                                android:textStyle="bold"
+                                android:textSize="20sp"
+                                android:textColor="#0D6EFD"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- TOMBOL BAYAR -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnBayar"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:text="Bayar Sekarang (QRIS)"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/theme_button_simpan"
+                    app:cornerRadius="30dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <!-- END layoutKontenPaket -->
+
+    </LinearLayout>
+
+</ScrollView>

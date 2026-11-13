@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomIndicatorDots">
+        <attr name="dotDiameter" format="dimension" />
+        <attr name="dotEmptyBackground" format="reference" />
+        <attr name="dotFilledBackground" format="reference" />
+        <attr name="pinLength" format="integer" />
+    </declare-styleable>
+</resources>

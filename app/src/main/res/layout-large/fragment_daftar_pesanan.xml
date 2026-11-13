@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.daftarpesanan.DaftarPesananFragment">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="24dp"
+        android:paddingTop="10dp"
+        android:gravity="center_vertical"
+        android:paddingBottom="20dp">
+
+        <EditText
+            android:id="@+id/etPencarianPesanan"
+            style="@style/BodyDmP1Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/search_theme_edit_text"
+            android:drawableEnd="@drawable/ic_16_px_search"
+            android:hint="@string/cari_pesanan"
+            android:padding="15dp" />
+
+        <TextView
+            android:id="@+id/btSearchKategori"
+            style="@style/BodyDmP1Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/kategori_theme_button"
+            android:clickable="true"
+            android:drawableStart="@drawable/ic_16_px_kategori"
+            android:focusable="true"
+            android:padding="15dp"
+            android:text="@string/kategori"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_Kosong"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="24dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/il_180_px_daftar_pesanan" />
+
+        <TextView
+            style="@style/TitleDmH5Bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/daftar_pesanan_kosong"
+            android:textAlignment="center"
+            android:textColor="@color/primary_navy" />
+
+        <TextView
+            style="@style/BodyDmP1Regular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/daftar_pesanan"
+            android:textAlignment="center"
+            android:textColor="@color/primary_navy" />
+    </LinearLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvDaftarPesanan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutbelow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@color/white"
+        android:elevation="5dp"
+        android:visibility="gone"
+        android:paddingStart="16dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="20dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bthapusdftr"
+            style="@style/TitleMulishH5Normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/theme_button_tutupkasir"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="Hapus Daftar yang Dipilih"
+            android:textAllCaps="false"
+            android:textColor="@color/white_bg" />
+    </RelativeLayout>
+</LinearLayout>

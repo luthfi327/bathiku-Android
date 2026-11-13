@@ -1,0 +1,56 @@
+[
+  { "id": "01", "nama": "Warung Makan" },
+  { "id": "02", "nama": "Restoran" },
+  { "id": "03", "nama": "Cafe / Kedai Kopi" },
+  { "id": "04", "nama": "Bakery / Toko Roti" },
+  { "id": "05", "nama": "Catering" },
+
+  { "id": "06", "nama": "Minimarket" },
+  { "id": "07", "nama": "Toko Kelontong" },
+  { "id": "08", "nama": "Kios Pasar" },
+  { "id": "09", "nama": "Toko Sembako" },
+
+  { "id": "10", "nama": "Toko Pakaian" },
+  { "id": "11", "nama": "Toko Sepatu & Tas" },
+  { "id": "12", "nama": "Toko Aksesoris" },
+  { "id": "13", "nama": "Toko Hijab" },
+
+  { "id": "14", "nama": "Apotek" },
+  { "id": "15", "nama": "Toko Obat" },
+  { "id": "16", "nama": "Toko Kosmetik & Skincare" },
+
+  { "id": "17", "nama": "Barbershop" },
+  { "id": "18", "nama": "Salon Kecantikan" },
+  { "id": "19", "nama": "Laundry" },
+
+  { "id": "20", "nama": "Bengkel Motor" },
+  { "id": "21", "nama": "Bengkel Mobil" },
+  { "id": "22", "nama": "Toko Sparepart" },
+
+  { "id": "23", "nama": "Toko Elektronik" },
+  { "id": "24", "nama": "Konter HP & Aksesoris" },
+  { "id": "25", "nama": "Toko Pulsa & PPOB" },
+
+  { "id": "26", "nama": "Percetakan / Fotokopi" },
+  { "id": "27", "nama": "Toko Buku & ATK" },
+
+  { "id": "28", "nama": "Pet Shop" },
+  { "id": "29", "nama": "Toko Pakan Ternak" },
+
+  { "id": "30", "nama": "Toko Bangunan" },
+  { "id": "31", "nama": "Material & Peralatan" },
+
+  { "id": "32", "nama": "Jasa Servis Elektronik" },
+  { "id": "33", "nama": "Jasa Servis HP & Laptop" },
+  { "id": "34", "nama": "Jasa Kebersihan" },
+
+  { "id": "35", "nama": "Klinik / Praktik Mandiri" },
+  { "id": "36", "nama": "Bidan / Perawat" },
+
+  { "id": "37", "nama": "Lembaga Kursus" },
+  { "id": "38", "nama": "Bimbel / Les Privat" },
+
+  { "id": "39", "nama": "Kaki Lima" },
+
+  { "id": "99", "nama": "Usaha Lainnya" }
+]

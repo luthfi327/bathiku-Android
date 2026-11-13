@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:color="@color/white_bg"
+    tools:targetApi="lollipop">
+    <item>
+        <shape android:shape="rectangle">
+
+            <corners android:radius="10dp" />
+            <solid android:color="@color/accent_green" />
+
+        </shape>
+    </item>
+
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="90"
+                android:endColor="@color/accent_green"
+                android:startColor="@color/accent_green"
+                android:type="linear" />
+            <corners android:radius="10dp" />
+
+        </shape>
+
+    </item>
+</ripple>

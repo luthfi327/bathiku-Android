@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    android:orientation="vertical"
+    tools:context=".BantuanActivity"
+    android:fitsSystemWindows="true">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/white"
+        android:elevation="5dp"
+        app:layout_collapseMode="pin">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingEnd="15dp">
+
+            <TextView
+                style="@style/TitleMulishH5Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="Bantuan"
+                android:textColor="@color/primary_navy" />
+
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    style="@style/TitleMulishH3ExtraBold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pengaturan_pemasangan_bluetooth"
+                    android:textColor="@color/colorPrimary"
+                    tools:ignore="RtlSymmetry" />
+
+                <TextView
+                    style="@style/BodyDmP1Regular"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Berikut adalah panduan untuk mengkoneksikan printer Bluetooth dengan aplikasi Bathiku."
+                    android:textColor="@color/colorPrimary" />
+
+                <TextView
+                    style="@style/BodyDmP1Regular"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1. Pergi ke halaman setting Bluetooth di HP Android anda."
+                    android:textColor="@color/colorPrimary" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="116dp"
+                    android:src="@drawable/ss1" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="209dp"
+                    android:src="@drawable/ss2" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="2. Lakukan pencarian pada Bluetooth Device printer yang sudah anda nyalakan."
+                    android:textColor="@color/black" />
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="836dp"
+                    android:src="@drawable/ss3" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="3. Koneksikan Bluetooth Printer yang ditemukan, kemudian masukkan sandi/password default 0000/1234."
+                    android:textColor="@color/black" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="853dp"
+                    android:src="@drawable/ss4" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="853dp"
+                    android:src="@drawable/ss5" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="4. Nah setelah Bluetooth di HP terpasang dengan Bluetooth Printer, maka selanjutnya koneksikan Bathiku dengan Printer Bluetooth\n\n\n\n"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+    </ScrollView>
+
+
+</LinearLayout>

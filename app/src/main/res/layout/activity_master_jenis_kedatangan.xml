@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MasterJenisKedatanganActivity"
+    android:fitsSystemWindows="true">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/white"
+        android:elevation="5dp"
+        android:gravity="center_vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingEnd="15dp">
+
+            <TextView
+                style="@style/TitleMulishH5Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/master_jenis_kedatangan"
+                android:textColor="@color/primary_navy" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btExport"
+                style="@style/TabMulish14pxRegular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/theme_toolbar_btn_adduser"
+                android:drawableStart="@drawable/baseline_import_export_24"
+                android:drawablePadding="5dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="Export"
+                android:textAllCaps="false"
+                android:textColor="@color/white_bg" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btTambah"
+                style="@style/TabMulish14pxRegular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@id/btExport"
+                android:layout_marginEnd="10dp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/theme_toolbar_btn_adduser"
+                android:drawableStart="@drawable/ic_baseline_add_24"
+                android:drawablePadding="5dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="@string/tambah"
+                android:textAllCaps="false"
+                android:textColor="@color/white_bg" />
+
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        android:visibility="gone">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMasterJenisBrg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:scrollbars="vertical" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_Kosong"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/TitleDmH5Regular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/master_jenis_kedatangan_kosong"
+            android:textAlignment="center"
+            android:textColor="@color/primary_navy" />
+
+        <TextView
+            style="@style/BodyDmP1Medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/ket_jenis_kedatangan_kosong"
+            android:textAlignment="center"
+            android:textColor="@color/primary_navy" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btTambahJKKosong"
+            style="@style/TabMulish14pxRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            android:background="@drawable/theme_toolbar_btn_adduser"
+            android:drawableStart="@drawable/ic_baseline_add_24"
+            android:drawablePadding="5dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="@string/tambah_jenis_kedatangan"
+            android:textAllCaps="false"
+            android:textColor="@color/white_bg" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btTambahTemplate"
+            style="@style/TabMulish14pxRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/theme_toolbar_btn_adduser"
+            android:drawableStart="@drawable/ic_baseline_format_list_bulleted_24"
+            android:drawablePadding="5dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="Tambah Template"
+            android:textAllCaps="false"
+            android:textColor="@color/white_bg" />
+
+    </LinearLayout>
+
+</LinearLayout>

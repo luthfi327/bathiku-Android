@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    tools:context=".ui.riwayatpenjualan.RiwayatPenjualanFragment">
+
+    <EditText
+        android:id="@+id/etRiwayatPenjualan"
+        style="@style/BodyDmP1Medium"
+        android:inputType="textCapWords"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/search_theme_edit_text"
+        android:drawableEnd="@drawable/ic_16_px_search"
+        android:hint="@string/car_nama_pelanggan_atau_invoice"
+        android:padding="15dp" />
+
+    <!-- FILTER TANGGAL -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="15dp">
+
+        <!-- Tanggal Dari -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp">
+
+            <EditText
+                android:id="@+id/etTanggalDari"
+                style="@style/BodyDmP1Regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Dari"
+                android:focusable="false"
+                android:clickable="true"
+                android:drawableEnd="@drawable/ic_calendar"
+                android:padding="12dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Tanggal Hingga -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp">
+
+            <EditText
+                android:id="@+id/etTanggalHingga"
+                style="@style/BodyDmP1Regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Hingga"
+                android:focusable="false"
+                android:clickable="true"
+                android:drawableEnd="@drawable/ic_calendar"
+                android:padding="12dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_Kosong"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/il_180_px_daftar_pesanan" />
+
+        <TextView
+            style="@style/TitleDmH5Bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/daftar_riwayat_penj_kosong"
+            android:textAlignment="center"
+            android:textColor="@color/primary_navy" />
+
+        <TextView
+            style="@style/BodyDmP1Regular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/riwayat_penjualan_kosong"
+            android:textAlignment="center"
+            android:textColor="@color/primary_navy" />
+    </LinearLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvRiwayatPenjualan"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <!-- Footer -->
+    <TextView
+        android:id="@+id/footerText"
+        style="@style/LabelMulishS1Bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="© Bathiku by PyramidSoft"
+        android:textSize="14sp"
+        android:textColor="#555555"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp" />
+
+</LinearLayout>

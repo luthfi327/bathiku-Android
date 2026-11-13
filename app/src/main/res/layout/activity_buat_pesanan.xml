@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".BuatPesananAct"
+    android:fitsSystemWindows="true">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/white"
+        android:elevation="5dp"
+        android:gravity="center_vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingEnd="15dp">
+
+            <ImageView
+                android:id="@+id/IvClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="5dp"
+                android:background="?attr/selectableItemBackground"
+                android:src="@drawable/close_logo" />
+
+            <TextView
+                style="@style/TitleMulishH4Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="21dp"
+                android:layout_toEndOf="@+id/IvClose"
+                android:text="@string/buat_pesanan"
+                android:textColor="@color/primary_navy" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tvBatal"
+                style="@style/BodyDmP1Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toStartOf="@+id/btSimpan"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:text="@string/batal" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSimpan"
+                style="@style/TitleMulishH5Normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/theme_button_simpan"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:text="@string/simpan"
+                android:textAllCaps="false"
+                android:textColor="@color/white_bg" />
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <RelativeLayout
+        android:id="@+id/rel_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:background="#F6F6F7"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvtglOrderLabel"
+            style="@style/LabelDmS1Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tanggal_order"
+            android:textColor="@color/black_90" />
+
+        <TextView
+            android:id="@+id/tvTglOrder"
+            style="@style/LabelDmS1Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvtglOrderLabel"
+            android:layout_marginTop="5dp"
+            android:text="Senin, 24 Juli 2021"
+            android:textColor="@color/black_100" />
+
+        <TextView
+            style="@style/LabelDmS1Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="@string/invoice"
+            android:textColor="@color/black_90" />
+
+        <TextView
+            android:id="@+id/tvCodeCounter"
+            style="@style/LabelDmS1Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tvTglOrder"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            android:text="A120"
+            android:textColor="@color/black_100" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvTglOrder"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/LabelDmS1Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/nama_pegawai" />
+
+            <TextView
+                android:id="@+id/tvNamaUser"
+                style="@style/LabelDmS1Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Gembul Pratama"
+                android:textColor="@color/black_100" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/rel_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rel_1"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/tvBtDataPesanan"
+            style="@style/TabMulish14pxRegular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/kategori_theme_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="14dp"
+            android:text="@string/masukkan_data_pemesanan"
+            android:textColor="@color/secondary_purple"
+            android:drawableEnd="@drawable/ic_24_px_data_pelangganxml"/>
+
+        <LinearLayout
+            android:id="@+id/btfilledplgn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/pelanggan_ada_button"
+            android:clickable="true"
+            android:drawableEnd="@drawable/ic_24_px_data_pelangganxml"
+            android:focusable="true"
+            android:orientation="vertical"
+            android:padding="14dp">
+
+            <TextView
+                android:id="@+id/tvnamanmemberplgn"
+                style="@style/TabMulish14pxRegular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:drawableEnd="@drawable/ic_16_px_edit_purplexml"
+                android:text="@string/masukkan_data_pemesanan"
+                android:textColor="@color/secondary_purple" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp">
+
+                <TextView
+                    android:id="@+id/tvDiskon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:background="@drawable/theme_button_pilihproduk"
+                    android:gravity="center"
+                    android:minHeight="30dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:text="10%"
+                    android:textColor="@color/white_bg"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tvjenisdatang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/theme_button_hijau"
+                    android:gravity="center"
+                    android:minHeight="30dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="Ojek Online"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/layoutbelow"
+        android:layout_below="@+id/rel_2"
+        android:layout_marginTop="5dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:id="@+id/tvLblPesanan"
+                style="@style/TitleMulishH3ExtraBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pesanan"
+                android:textColor="@color/black_100" />
+
+            <TextView
+                android:id="@+id/tvBtTambahItem"
+                style="@style/TabMulish14pxRegular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="@string/tambah_item"
+                android:textColor="@color/accent_green" />
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvListPesanan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F6F6F7" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutbelow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="5dp"
+        android:background="@color/white"
+        android:elevation="5dp"
+        android:paddingStart="16dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="20dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/LabelDmS1Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sub_total"
+                android:textColor="@color/black_90" />
+
+            <TextView
+                android:id="@+id/tvTotalHrg"
+                style="@style/TitleMulishH4Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="Rp0"
+                android:textColor="@color/black_100" />
+        </LinearLayout>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btByrSkrg"
+            style="@style/TitleMulishH5Normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/theme_button_simpan"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="@string/bayar_skrg"
+            android:textAllCaps="false"
+            android:textColor="@color/white_bg" />
+    </RelativeLayout>
+
+</RelativeLayout>
